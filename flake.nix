@@ -46,6 +46,7 @@
                 nativeBuildInputs = [
                   final.cabal-install
                   final.haskellPackages.haskell-language-server
+                  final.haskellPackages.tasty-discover
                 ];
               };
             })
