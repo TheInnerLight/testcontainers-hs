@@ -40,13 +40,12 @@
               # A Haskell development shell for our package that includes
               # things like cabal and HLS.
               myDevShell = final.myHaskellPackages.shellFor {
-                packages = p: [ p.testcontainers-flake ];
+                packages = p: [ p.testcontainers-flake p.tasty-discover ];
                 
 
                 nativeBuildInputs = [
                   final.cabal-install
                   final.haskellPackages.haskell-language-server
-                  final.haskellPackages.tasty-discover
                 ];
               };
             })
