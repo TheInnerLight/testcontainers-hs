@@ -25,7 +25,7 @@
                 overrides = hfinal: hprev: {
                   # This is our local Haskell package.
                   testcontainers-flake =
-                    hfinal.callCabal2nix "testcontainers" ./. { };
+                    hfinal.callCabal2nix "testcontainers" ./. { tasty-discover = pkgs.haskellPackages.tasty-discover; };
                 };
               };
 
@@ -40,7 +40,7 @@
               # A Haskell development shell for our package that includes
               # things like cabal and HLS.
               myDevShell = final.myHaskellPackages.shellFor {
-                packages = p: [ p.testcontainers-flake p.tasty-discover ];
+                packages = p: [ p.testcontainers-flake ];
                 
 
                 nativeBuildInputs = [
